@@ -22,7 +22,7 @@ public class Fraction {
             negative = false;
         }
         else {
-            numerator = Math.abs(numerator);
+            numerator = -Math.abs(numerator);
             denominator = Math.abs(denominator);
             negative = true;
         }
@@ -60,7 +60,7 @@ public class Fraction {
         if (denominator == 1) {
             ret = String.valueOf(numerator);
         }
-        else if (denominator > numerator) {
+        else if (denominator > Math.abs(numerator)) {
             ret = String.format("%d/%d",numerator, denominator);
         }
         else if (denominator == numerator) {
@@ -70,11 +70,45 @@ public class Fraction {
             // 商，带分数中的带子还是什么之类的东西
             int quotient = numerator / denominator;
             int mod = numerator % denominator;
-            ret = String.format("%d'%d/%d", quotient, mod, denominator);
+            ret = String.format("%d'%d/%d", quotient, Math.abs(mod), denominator);
         }
-        if(negative)
-            return String.format("-%s", ret);
         return ret;
     }
 
+    public Fraction Add(Fraction x) {
+        int NewNumerator = this.numerator * x.denominator + this.denominator * x.numerator;
+        int NewDenominator = this.denominator * x.denominator;
+        int gcd = getGreatestCommonDivider(NewNumerator, NewDenominator);
+        Fraction ret = new Fraction(NewNumerator / gcd, NewDenominator / gcd);
+        ret.simplify();
+        return ret;
+    }
+
+    public Fraction Sub(Fraction x) {
+        int NewNumerator = this.numerator * x.denominator - this.denominator * x.numerator;
+        int NewDenominator = this.denominator * x.denominator;
+        int gcd = getGreatestCommonDivider(NewNumerator, NewDenominator);
+        Fraction ret = new Fraction(NewNumerator / gcd, NewDenominator / gcd);
+        ret.simplify();
+        return ret;
+    }
+
+    public Fraction Mul(Fraction x) {
+        int NewNumerator = this.numerator * x.numerator;
+        int NewDenominator = this.denominator * x.denominator;
+        int gcd = getGreatestCommonDivider(NewNumerator, NewDenominator);
+        Fraction ret = new Fraction(NewNumerator / gcd, NewDenominator / gcd);
+        ret.simplify();
+        ret.negative = this.negative ^ x.negative;
+        return ret;
+    }
+    public Fraction Div(Fraction x) {
+        int NewNumerator = this.numerator * x.denominator;
+        int NewDenominator = this.denominator * x.numerator;
+        int gcd = getGreatestCommonDivider(NewNumerator, NewDenominator);
+        Fraction ret = new Fraction(NewNumerator / gcd, NewDenominator / gcd);
+        ret.simplify();
+        ret.negative = this.negative ^ x.negative;
+        return ret;
+    }
 }

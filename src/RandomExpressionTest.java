@@ -22,6 +22,38 @@ public class RandomExpressionTest {
         System.out.println(f6.ToString());
         Fraction f7 = new Fraction(3, -2);
         System.out.println(f7.ToString());
+        // 测试分母为零
+        try {
+            Fraction zero = new Fraction(1, 0);
+        }
+        catch (Exception e) {
+            System.out.println(e.toString());
+        }
+        // 对分数加法的测试
+        // 正数的加法
+        Fraction a1 = new Fraction(2, 1);
+        Fraction a2 = new Fraction(1, 4);
+        System.out.println(a1.Add(a2).ToString());
+        // 存在负数的加减法
+        a1 = new Fraction(-1, 2);
+        a2 = new Fraction(2, 1);
+        System.out.println(a1.Add(a2).ToString());
+        // 对分数的减法测试
+        a1 = new Fraction(1, 4);
+        a2 = new Fraction(2, 1);
+        System.out.println(a1.Sub(a2).ToString());
+        System.out.println(a2.Sub(a1).ToString());
+        // 对分数的乘法进行测试
+        a1 = new Fraction(3, 4);
+        a2 = new Fraction(-4, 3);
+        System.out.println(a1.Mul(a2).ToString());
+        a2 = new Fraction(4, 3);
+        System.out.println(a1.Mul(a2).ToString());
+        // 对分数的除法进行测试
+        a1 = new Fraction(3, 4);
+        a2 = new Fraction(2, 5);
+        System.out.println(a1.Div(a2).ToString());
+        a1 = new Fraction(2, -5);
+        System.out.println(a1.Div(a2).ToString());
     }
-
 }
