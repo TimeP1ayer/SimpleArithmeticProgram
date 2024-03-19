@@ -50,23 +50,27 @@ public class Fraction {
     }
 
     public String ToString() {
+        String ret = null;
         if(numerator == 0) {
-            return String.valueOf(0);
+            ret = String.valueOf(0);
         }
         // 先看看是不是整数
         if (denominator == 1) {
-            return String.valueOf(numerator);
+            ret = String.valueOf(numerator);
         }
         else if (denominator > numerator) {
-            return String.format("%d/%d",numerator, denominator);
+            ret = String.format("%d/%d",numerator, denominator);
         }
-        else if(denominator == numerator) {
-            return String.valueOf(1);
+        else if (denominator == numerator) {
+            ret = String.valueOf(1);
         }
         // 商，带分数中的带子还是什么之类的东西
         int quotient = numerator / denominator;
         int mod = numerator % denominator;
-        return String.format("%d'%d/%d", quotient, mod, denominator);
+        ret = String.format("%d'%d/%d", quotient, mod, denominator);
+        if(negative)
+            return String.format("-%s", ret);
+        return ret;
     }
 
 }
