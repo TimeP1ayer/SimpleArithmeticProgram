@@ -22,6 +22,8 @@ public class Fraction {
             negative = false;
         }
         else {
+            numerator = Math.abs(numerator);
+            denominator = Math.abs(denominator);
             negative = true;
         }
         int gcd = getGreatestCommonDivider(numerator, denominator);
@@ -37,7 +39,7 @@ public class Fraction {
             a = b;
             b = temp;
         }
-        return b;
+        return a;
     }
 
     public Fraction(int numerator, int denominator) {
@@ -64,10 +66,12 @@ public class Fraction {
         else if (denominator == numerator) {
             ret = String.valueOf(1);
         }
-        // 商，带分数中的带子还是什么之类的东西
-        int quotient = numerator / denominator;
-        int mod = numerator % denominator;
-        ret = String.format("%d'%d/%d", quotient, mod, denominator);
+        else {
+            // 商，带分数中的带子还是什么之类的东西
+            int quotient = numerator / denominator;
+            int mod = numerator % denominator;
+            ret = String.format("%d'%d/%d", quotient, mod, denominator);
+        }
         if(negative)
             return String.format("-%s", ret);
         return ret;

@@ -15,6 +15,13 @@ public class RandomExpressionTest {
         // 分子和分母相等
         Fraction f4 = new Fraction(3, 3);
         System.out.println(f4.ToString());
+        // 测试负数
+        Fraction f5 = new Fraction(-1, 3);
+        System.out.println(f5.ToString());
+        Fraction f6 = new Fraction(1, -3);
+        System.out.println(f6.ToString());
+        Fraction f7 = new Fraction(3, -2);
+        System.out.println(f7.ToString());
     }
 
 }
