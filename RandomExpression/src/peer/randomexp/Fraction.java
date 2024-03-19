@@ -7,13 +7,52 @@ public class Fraction {
      */
     int numerator;
     int denominator;
+    boolean negative;
+
+    private void simplify() {
+        if(numerator == 0) {
+            return;
+        }
+        else if(numerator > 0 && denominator > 0) {
+            negative = false;
+        }
+        else if(numerator < 0 && denominator < 0) {
+            numerator = -numerator;
+            denominator = -denominator;
+            negative = false;
+        }
+        else {
+            negative = true;
+        }
+        int gcd = getGreatestCommonDivider(numerator, denominator);
+        numerator /= gcd;
+        denominator /= gcd;
+    }
+
+    private int getGreatestCommonDivider(int x, int y) {
+        int a = Math.abs(x);
+        int b = Math.abs(y);
+        while(b != 0) {
+            int temp = a % b;
+            a = b;
+            b = temp;
+        }
+        return b;
+    }
 
     public Fraction(int numerator, int denominator) {
+        if(denominator == 0) {
+            throw new ArithmeticException("Denominator cannot be zero.");
+        }
         this.numerator = numerator;
         this.denominator = denominator;
+        simplify();
     }
 
     public String ToString() {
+        if(numerator == 0) {
+            return String.valueOf(0);
+        }
         // 先看看是不是整数
         if (denominator == 1) {
             return String.valueOf(numerator);
@@ -29,4 +68,5 @@ public class Fraction {
         int mod = numerator % denominator;
         return String.format("%d'%d/%d", quotient, mod, denominator);
     }
+
 }
