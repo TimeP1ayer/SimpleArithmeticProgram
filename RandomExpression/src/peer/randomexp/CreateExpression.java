@@ -59,7 +59,8 @@ public class CreateExpression {
         ArrayList<Expression> exprs = new ArrayList<>();
         ArrayList<Expression.OPTYPE> operators = new ArrayList<>();
         int operatorNums = rand.nextInt(3) + 1;
-        for(int i = 0;i < 3 + 1;i++) {
+        operatorNums = 3;
+        for(int i = 0;i < operatorNums + 1;i++) {
             int numerator = rand.nextInt(r);
             LeafExpression tmp = new LeafExpression(new Fraction(numerator, 1));
             exprs.add(tmp);
@@ -73,23 +74,23 @@ public class CreateExpression {
             op = op % (Expression.OPTYPE.values().length - 1);
             switch(op){
                 case 0:
-                    operators.add(Expression.Add());
+                    operators.add(Expression.OPTYPE.Add);
                     break;
                 case 1:
-                    operators.add(Expression.Sub());
+                    operators.add(Expression.OPTYPE.Sub);
                     break;
                 case 2:
-                    operators.add(Expression.Mul());
+                    operators.add(Expression.OPTYPE.Mul);
                     break;
                 case 3:
-                    operators.add(Expression.Div());
+                    operators.add(Expression.OPTYPE.Div);
                     break;
                 default:
                     System.out.println("Lose");
                     break;
             }
         }
-        */
+         */
         if(analysis(operators)){
             ExpressionSort(exprs);
         }

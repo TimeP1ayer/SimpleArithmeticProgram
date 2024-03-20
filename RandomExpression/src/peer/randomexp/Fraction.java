@@ -117,4 +117,8 @@ public class Fraction {
         int tmpX = x.numerator * this.denominator;
         return tmpThis > tmpX;
     }
+
+    public boolean Equal(Fraction x) {
+        return this.numerator == x.numerator && this.denominator == x.denominator;
+    }
 }

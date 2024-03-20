@@ -22,7 +22,7 @@ public class Expression {
     }
 
     public String getExp() {
-        return maxLeaf.ToString();
+        return "Base Class No Operator";
     }
 
     public OPTYPE getType() {
@@ -43,24 +43,5 @@ public class Expression {
 
     public OPTYPE getOpType() {
         return opType;
-    }
-
-
-    public static OPTYPE Add() {
-        return OPTYPE.Add;
-    }
-
-    public static OPTYPE Sub() {
-        return OPTYPE.Sub;
-    }
-    public static OPTYPE Mul() {
-        return OPTYPE.Mul;
-    }
-    public static OPTYPE Div() {
-        return OPTYPE.Div;
-    }
-
-    public  static  OPTYPE Leaf() {
-        return OPTYPE.Leaf;
     }
 }
