@@ -4,6 +4,9 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 答案格式为
@@ -17,7 +20,6 @@ public class ReadUtil {
 
     //指示目前读取工具读取到第几行
 
-    private int line=1;
 
     /**
      * 返回文件行数
@@ -66,7 +68,7 @@ public class ReadUtil {
                 //读取文件第line行文字，每调用一次readline，则往下走一行
                 while ( (text = Reader.readLine() )!=null){
                     if(currentLine==targetLine){
-                        System.out.println("content: "+text);
+                        //System.out.println("content: "+text);
                         break;
                     }
                     currentLine++;
@@ -83,5 +85,36 @@ public class ReadUtil {
         return null;
     }
 
+
+    /**
+     *
+     * @param OriginAnswerPath  正确答案路径
+     * @param AnswerPath 作答路径
+     * @return 包含正确与错误共两个ArrayList
+     */
+
+    public static ArrayList<Integer>[] ResultCompare(String OriginAnswerPath, String AnswerPath){
+
+        ArrayList<Integer>Correct = new ArrayList<>();
+        ArrayList<Integer>Wrong = new ArrayList<>();
+
+        long line = ReadUtil.CountLine(OriginAnswerPath);
+
+        for(int i=1;i<=line;i++){
+            String origin = ReadUtil.GetResult(OriginAnswerPath,i);
+            String Answer = ReadUtil.GetResult(AnswerPath,i);
+            if(origin.equals(Answer)){
+                Correct.add(i);
+            }else {
+                Wrong.add(i);
+            }
+        }
+
+        ArrayList<Integer>[] GetCompareResult = (ArrayList<Integer>[]) new ArrayList[2];
+        GetCompareResult[0] = Correct;
+        GetCompareResult[1] = Wrong;
+
+        return GetCompareResult;
+    }
 
 }
