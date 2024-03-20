@@ -1,6 +1,9 @@
 import org.junit.Test;
 import peer.randomexp.CreateExpression;
 import peer.randomexp.Fraction;
+
+import java.util.Map;
+
 public class RandomExpressionTest {
     @Test
     public void ToStringTest() {
@@ -59,7 +62,10 @@ public class RandomExpressionTest {
     }
     @Test
     public void CreateExpressionTest() {
-        CreateExpression a = new CreateExpression(10, 10);
-
+        CreateExpression a = new CreateExpression(30, 2);
+        Map<String, String> tmp = a.getExpressionAndResult();
+        for(String exp : tmp.keySet()) {
+            System.out.println(exp);
+        }
     }
 }
