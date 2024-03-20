@@ -111,4 +111,10 @@ public class Fraction {
         ret.negative = this.negative ^ x.negative;
         return ret;
     }
+
+    public boolean Great(Fraction x) {
+        int tmpThis = this.numerator * x.denominator;
+        int tmpX = x.numerator * this.denominator;
+        return tmpThis > tmpX;
+    }
 }

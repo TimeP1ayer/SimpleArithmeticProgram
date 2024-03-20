@@ -5,7 +5,7 @@ public class Expression {
     表达式类的基类，主要提供多态性，一般不使用这个对象
      */
     public enum OPTYPE{
-        ADD,
+        Add,
         Sub,
         Mul,
         Div,
@@ -18,11 +18,11 @@ public class Expression {
     OPTYPE opType;
 
     public String getResult() {
-        return null;
+        return result.ToString();
     }
 
     public String getExp() {
-        return null;
+        return maxLeaf.ToString();
     }
 
     public OPTYPE getType() {
@@ -30,11 +30,11 @@ public class Expression {
     }
 
     public Expression getLeft() {
-        return null;
+        return left;
     }
 
     public Expression getRight() {
-        return null;
+        return right;
     }
 
     public Fraction getMaxLeaf() {
@@ -47,7 +47,7 @@ public class Expression {
 
 
     public static OPTYPE Add() {
-        return OPTYPE.ADD;
+        return OPTYPE.Add;
     }
 
     public static OPTYPE Sub() {

@@ -1,4 +1,5 @@
 import org.junit.Test;
+import peer.randomexp.CreateExpression;
 import peer.randomexp.Fraction;
 public class RandomExpressionTest {
     @Test
@@ -55,5 +56,10 @@ public class RandomExpressionTest {
         System.out.println(a1.Div(a2).ToString());
         a1 = new Fraction(2, -5);
         System.out.println(a1.Div(a2).ToString());
+    }
+    @Test
+    public void CreateExpressionTest() {
+        CreateExpression a = new CreateExpression(10, 10);
+
     }
 }
