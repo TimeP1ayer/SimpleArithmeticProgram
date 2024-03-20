@@ -121,4 +121,8 @@ public class Fraction {
     public boolean Equal(Fraction x) {
         return this.numerator == x.numerator && this.denominator == x.denominator;
     }
+
+    public boolean isZero() {
+        return this.numerator == 0;
+    }
 }

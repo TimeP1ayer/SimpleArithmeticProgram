@@ -44,4 +44,23 @@ public class Expression {
     public OPTYPE getOpType() {
         return opType;
     }
+
+    public int opPriority() {
+        if(opType == OPTYPE.Add) {
+            return 1;
+        }
+        else if(opType == OPTYPE.Sub) {
+            return 2;
+        }
+        else if(opType == OPTYPE.Mul) {
+            return 3;
+        }
+        else if(opType == OPTYPE.Div) {
+            return 4;
+        }
+        else if(opType == OPTYPE.Leaf) {
+            return 5;
+        }
+        return 0;
+    }
 }
