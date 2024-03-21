@@ -8,24 +8,13 @@ import java.util.Map;
 
 public class WriteUtilTest {
 
+    //TODO 覆写文件
     @Test
     public void writeExpression() {
-
-        CreateExpression a = new CreateExpression(30,10);
+        CreateExpression a = new CreateExpression(10,10);
         Map<String, String> tmp = a.getExpressionAndResult();
-        int i = 1;
-        //生成算数题目
-        for (String exp : tmp.keySet()){
-            WriteUtil.WriteExpression(i+"."+exp+"=","D:\\Users\\Desktop\\exp.txt");
-            i++;
-        }
 
-        //生成题目答案
-        i=1;
-        for (String result : tmp.values()){
-            WriteUtil.WriteExpression(i+"."+result,"D:\\Users\\Desktop\\result.txt");
-            i++;
-        }
+        WriteUtil.WriteExpression(tmp,"D:\\Users\\Desktop\\exp.txt","D:\\Users\\Desktop\\result.txt");
 
     }
 

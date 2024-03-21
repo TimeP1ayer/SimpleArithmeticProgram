@@ -15,32 +15,16 @@ public class CommandUtil {
         return n;
     }
 
-    public void setN(int n) {
-        this.n = n;
-    }
-
     public int getR() {
         return r;
-    }
-
-    public void setR(int r) {
-        this.r = r;
     }
 
     public String getE() {
         return this.e;
     }
 
-    public void setE(String e) {
-        this.e = e;
-    }
-
     public String getA() {
         return this.a;
-    }
-
-    public void setA(String a) {
-        this.a = a;
     }
 
     //n 个数
@@ -81,7 +65,6 @@ public class CommandUtil {
         }
 
     }
-
 
     //路径是否合格
     public String isFile(String path){
