@@ -35,14 +35,14 @@ public class ReadUtil {
 
     }
 
-
     /**
      * 读取指定行的字符串
      * @param filepath 路径地址
      * @param targetLine 目标行
+     * @param form 检查标点
      * @return "."后的答案
      */
-    public static String GetResult(String filepath,int targetLine){
+    public static String GetResult(String filepath,int targetLine,String form){
         File file = new File(filepath);
 
         String text ;
@@ -69,7 +69,7 @@ public class ReadUtil {
                     currentLine++;
                 }
                 //截取答案
-                String targetText = text.substring(text.indexOf(".")+1);
+                String targetText = text.substring(text.indexOf(form)+1);
                 return  targetText;
             }catch (Exception e){
                 //异常处理
@@ -79,8 +79,6 @@ public class ReadUtil {
         }
         return null;
     }
-
-
 
     /**
      *
@@ -97,8 +95,10 @@ public class ReadUtil {
         long line = ReadUtil.CountLine(OriginAnswerPath);
 
         for(int i=1;i<=line;i++){
-            String origin = ReadUtil.GetResult(OriginAnswerPath,i);
-            String Answer = ReadUtil.GetResult(AnswerPath,i);
+            String origin = ReadUtil.GetResult(OriginAnswerPath,i,".");
+            System.out.println("origin:"+origin);
+            String Answer = ReadUtil.GetResult(AnswerPath,i,"=");
+            System.out.println("Answer:"+Answer);
             if(origin.equals(Answer)){
                 Correct.add(i);
             }else {

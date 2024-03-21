@@ -56,7 +56,7 @@ public class WriteUtil {
             BufferedWriter answerWriter = new BufferedWriter(new FileWriter(answerPath));
             int i=1;
             for (Map.Entry<String,String>entry : tmp.entrySet()){
-                expWriter.write(i+"."+entry.getKey());
+                expWriter.write(i+"."+entry.getKey()+"=");
                 expWriter.newLine();
                 i++;
             }

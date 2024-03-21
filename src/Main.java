@@ -7,16 +7,18 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args) {
 
-        //测试用例
-        String ak[] = {"-r","10","-a","D:\\SEwork\\SimpleArithmeticProgram\\result.txt","-e","D:\\SEwork\\SimpleArithmeticProgram\\result2.txt"};
-
-        CommandUtil commandUtil = new CommandUtil();
-        commandUtil.getParameter(args);
 
         String currentDir = System.getProperty("user.dir");
         String Exercises = currentDir+"\\Exercises.txt";
         String Grade = currentDir+"\\Grade.txt";
         String answer = currentDir+"\\Answers.txt";
+
+        //测试用例
+        String [] ak = {"-r","10","-e",Exercises,"-a",answer};
+        String [] ak1 = {"-e",Exercises,"-a",answer};
+
+        CommandUtil commandUtil = new CommandUtil();
+        commandUtil.getParameter(args);
 
         //写入题目与答案
         if (commandUtil.getR()>0){

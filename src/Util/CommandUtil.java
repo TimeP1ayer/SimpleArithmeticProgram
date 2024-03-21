@@ -53,7 +53,7 @@ public class CommandUtil {
         if (r!=-1&&args[r+1]!=null&&args[r+1].matches("\\d+")){
             this.r=Integer.valueOf(args[r+1]);
         }else {
-            System.out.println("请先输入-r的参数再运行程序!");
+            System.out.println("如果需要生成题目，请先输入-r的参数再运行程序!");
         }
 
         if (e!=-1&&(e+1)<=length){

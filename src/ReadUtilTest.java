@@ -1,6 +1,10 @@
 import Util.ReadUtil;
+import Util.WriteUtil;
 import org.junit.Test;
+import peer.randomexp.CreateExpression;
+
 import java.util.ArrayList;
+import java.util.Map;
 
 public class ReadUtilTest {
 
@@ -11,9 +15,8 @@ public class ReadUtilTest {
 
     @Test
     public void getResult() {
-        System.out.println(ReadUtil.GetResult("D:\\Users\\Desktop\\exp.txt",3));
-        System.out.println(ReadUtil.GetResult("D:\\Users\\Desktop\\exp.txt",5));
-
+        System.out.println(ReadUtil.GetResult("D:\\Users\\Desktop\\exp.txt",3,"."));
+        System.out.println(ReadUtil.GetResult("D:\\Users\\Desktop\\exp.txt",5,"="));
     }
 
     @Test
@@ -34,4 +37,19 @@ public class ReadUtilTest {
         }
 
     }
+
+    @Test
+    public void writeExpression() {
+        CreateExpression a = new CreateExpression(10,10);
+        Map<String, String> tmp = a.getExpressionAndResult();
+
+        WriteUtil.WriteExpression(tmp,"D:\\Users\\Desktop\\exp.txt","D:\\Users\\Desktop\\result.txt");
+
+    }
+
+    @Test
+    public void CompareResult(){
+        WriteUtil.WriteCompareResult(ReadUtil.ResultCompare("D:\\Users\\Desktop\\result.txt","D:\\Users\\Desktop\\result2.txt"),"D:\\Users\\Desktop\\Compareresult.txt");
+    }
+
 }
