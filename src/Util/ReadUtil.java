@@ -5,8 +5,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+
 
 /**
  * 答案格式为
@@ -17,9 +16,6 @@ import java.util.Map;
 
 
 public class ReadUtil {
-
-    //指示目前读取工具读取到第几行
-
 
     /**
      * 返回文件行数
@@ -68,7 +64,6 @@ public class ReadUtil {
                 //读取文件第line行文字，每调用一次readline，则往下走一行
                 while ( (text = Reader.readLine() )!=null){
                     if(currentLine==targetLine){
-                        //System.out.println("content: "+text);
                         break;
                     }
                     currentLine++;
@@ -84,6 +79,7 @@ public class ReadUtil {
         }
         return null;
     }
+
 
 
     /**

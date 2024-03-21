@@ -33,4 +33,6 @@ public class WriteUtilTest {
     public void CompareResult(){
         WriteUtil.WriteCompareResult(ReadUtil.ResultCompare("D:\\Users\\Desktop\\result.txt","D:\\Users\\Desktop\\result2.txt"),"D:\\Users\\Desktop\\Compareresult.txt");
     }
+
+
 }

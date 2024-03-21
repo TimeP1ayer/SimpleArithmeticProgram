@@ -1,6 +1,5 @@
 import Util.ReadUtil;
 import org.junit.Test;
-
 import java.util.ArrayList;
 
 public class ReadUtilTest {
@@ -14,6 +13,7 @@ public class ReadUtilTest {
     public void getResult() {
         System.out.println(ReadUtil.GetResult("D:\\Users\\Desktop\\exp.txt",3));
         System.out.println(ReadUtil.GetResult("D:\\Users\\Desktop\\exp.txt",5));
+
     }
 
     @Test
