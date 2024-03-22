@@ -169,7 +169,7 @@ public class CreateExpression {
         }
         exist = new HashMap<>();
         answer = new HashMap<>();
-        for(int i = 0;i < n;i++) {
+        while (answer.size()<n) {
             try {
                 CreateOneExpression(r);
             }

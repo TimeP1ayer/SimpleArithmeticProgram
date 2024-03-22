@@ -40,6 +40,15 @@ public class CommandUtil {
     }
 
     public void getParameter(String [] args){
+
+        String waring = "生成题目用法提示：\n" +
+                        "生成10个题目数量:-n 10 \n" +
+                        "(生成题目时必填)生成题目数值范围为0~15:-r 15 \n"+
+                        "批改功能用法提示：\n" +
+                        "需要批改功能时,作答文件与标准答案文件都必须在程序运行目录SimpleArithmeticProgram下，参数应该为目录下的文件名\n"+
+                        "作答文件:-e exercisefile.txt \n"+
+                        "标准答案文件:-a answerfile\n";
+
         int n = Arrays.asList(args).indexOf("-n");
         int r = Arrays.asList(args).indexOf("-r");
         int e = Arrays.asList(args).indexOf("-e");
@@ -48,20 +57,22 @@ public class CommandUtil {
 
         if (n!=-1&&args[n+1]!=null&&args[n+1].matches("\\d+")){
             this.n=Integer.valueOf(args[n+1]);
+        }else {
+            System.out.println(waring);
         }
 
         if (r!=-1&&args[r+1]!=null&&args[r+1].matches("\\d+")){
             this.r=Integer.valueOf(args[r+1]);
         }else {
             System.out.println("如果需要生成题目，请先输入-r的参数再运行程序!");
+            System.out.println(waring);
         }
 
-        if (e!=-1&&(e+1)<=length){
+        if (e!=-1&&(e+1)<=length&&a!=-1&&(a+1)<length){
             this.e=isFile(args[e+1]);
-        }
-
-        if (a!=-1&&(a+1)<length){
             this.a=isFile(args[a+1]);
+        }else if(e!=-1||a!=-1){
+            System.out.println(waring);
         }
 
     }
