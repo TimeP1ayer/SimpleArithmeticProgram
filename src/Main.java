@@ -13,12 +13,12 @@ public class Main {
         String answer = currentDir+"\\Answers.txt";
 
         //测试用例
-        String[] args0 = {"-n", "100", "-r", "30"};
+        String[] args0 = {"-n", "100000000", "-r", "4"};
         String [] ak = {"-r","10","-e",Exercises,"-a",answer};
         String [] ak1 = {"-e",Exercises,"-a",answer};
 
         try {
-            ExplainArgument explainer = new ExplainArgument(args0);
+            ExplainArgument explainer = new ExplainArgument(args);
             //写入题目与答案
             if(explainer.isOpenCreateExpression()) {
                 CreateExpression generator = new CreateExpression(explainer.getN(), explainer.getR());

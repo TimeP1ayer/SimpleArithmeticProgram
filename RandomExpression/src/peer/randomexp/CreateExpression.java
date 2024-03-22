@@ -167,13 +167,12 @@ public class CreateExpression {
             exist = null;
             return;
         }
-        int count = 1;
         exist = new HashMap<>();
         answer = new HashMap<>();
-        while(count <= n) {
+        while(answer.size() < n) {
             try {
                 CreateOneExpression(r);
-                count++;
+                System.out.println(answer.size());
             }
             catch (Exception e) {
                 String noop = e.toString();
