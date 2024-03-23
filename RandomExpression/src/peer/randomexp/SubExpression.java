@@ -15,11 +15,13 @@ public class SubExpression extends Expression{
                 leftExp = "(" + leftExp + ")";
             }
         }
-        if(right.opType.equals(OPTYPE.Add) || right.opType.equals(OPTYPE.Sub)
-                || right.opType.equals(OPTYPE.Mul) || right.opType.equals(OPTYPE.Div)) {
+        if(right.opType.equals(OPTYPE.Mul) || right.opType.equals(OPTYPE.Div)) {
             if(rand.nextInt(100)%2==0){
                 rightExp = "(" + rightExp + ")";
             }
+        }
+        else if(right.opType.equals(OPTYPE.Add) || right.opType.equals(OPTYPE.Sub)) {
+            rightExp = "(" + rightExp + ")";
         }
         return leftExp + "-" + rightExp;
     }
