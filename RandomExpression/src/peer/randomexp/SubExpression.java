@@ -23,7 +23,7 @@ public class SubExpression extends Expression{
         else if(right.opType.equals(OPTYPE.Add) || right.opType.equals(OPTYPE.Sub)) {
             rightExp = "(" + rightExp + ")";
         }
-        return leftExp + "-" + rightExp;
+        return leftExp + " - " + rightExp;
     }
 
     public SubExpression(Expression left, Expression right) {
