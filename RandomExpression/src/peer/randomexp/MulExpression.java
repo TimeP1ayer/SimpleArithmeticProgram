@@ -24,7 +24,7 @@ public class MulExpression extends Expression{
                 rightExp = "(" + rightExp + ")";
             }
         }
-        return leftExp + "*" + rightExp;
+        return leftExp + " × " + rightExp;
     }
 
     public MulExpression(Expression left, Expression right) {

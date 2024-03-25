@@ -70,6 +70,7 @@ public class ReadUtil {
                 }
                 //截取答案
                 String targetText = text.substring(text.indexOf(form)+1);
+                targetText = targetText.replaceAll("\\s*", "");
                 return  targetText;
             }catch (Exception e){
                 //异常处理

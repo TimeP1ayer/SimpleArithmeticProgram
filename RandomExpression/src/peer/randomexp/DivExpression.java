@@ -21,7 +21,7 @@ public class DivExpression extends Expression{
         if(right.opType != OPTYPE.Leaf) {
             rightExp = "(" + rightExp + ")";
         }
-        return leftExp + "/" + rightExp;
+        return leftExp + " ÷ " + rightExp;
     }
 
     public DivExpression(Expression left, Expression right) {
